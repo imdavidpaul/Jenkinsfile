@@ -1,4 +1,4 @@
-## Jenkinfiles
+## Jenkinfile
 
 ### Creating a Jenkinsfile
 
