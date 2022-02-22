@@ -1,6 +1,6 @@
 ## Jenkinfile
 
-### Creating a Jenkinsfile
+#### Creating a Jenkinsfile
 
 
 ```bash
@@ -28,7 +28,7 @@ pipeline {
 }
 ```
 ## Test
-### The example below uses the junit step, provided by the JUnit plugin.
+#### The example below uses the junit step, provided by the JUnit plugin.
 
 ```bash
 pipeline {
