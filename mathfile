@@ -1,0 +1,17 @@
+@Library('Jenkinsvars')_
+pipeline{
+    agent any
+    stages {
+        stage("Eample shared")
+        {
+            steps {
+                script {
+                    math.sum(10,20)
+                }
+            }
+            
+        }
+        
+    }
+    
+}
