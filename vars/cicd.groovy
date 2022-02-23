@@ -1,6 +1,6 @@
 def newGit(repo)
 {
-git url '${repo}'
+git '${repo}'
 }
 def newMaven()
 {
