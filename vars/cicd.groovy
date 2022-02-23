@@ -1,5 +1,5 @@
 def newGit(repo){
-   git branch: 'master', url: "${repo}"
+   git url: "${repo}"
 }
 
 
