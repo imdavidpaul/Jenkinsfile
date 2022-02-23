@@ -1,0 +1,19 @@
+node{
+    stage('ContinuousDownload') {
+    git branch: 'main', url: 'https://github.com/imdavidpaul/maven-project.git'
+    }
+    stage('ContinuousBuild'){
+    sh 'mvn package'
+    }
+    stage('ContinuousDeployment'){
+    deploy adapters: [tomcat8(credentialsId: '5944ff8c-15b3-460b-85d1-6fafcfcd8197', path: '', url: 'http://172.31.85.96:8080')], contextPath: 'test', war: '**/*.war'
+    }
+    stage('ContinuousTesting'){
+    git branch: 'main', url: 'https://github.com/imdavidpaul/FunctionTesting-Project.git'    
+    sh 'java -jar ${WORKSPACE}/testing.jar'
+    }
+    stage('ContinuousDelivery'){
+    input message: 'Need Approval from the delivery manager', submitter: 'chintu'
+    deploy adapters: [tomcat8(credentialsId: '5944ff8c-15b3-460b-85d1-6fafcfcd8197', path: '', url: 'http://172.31.82.19:8080')], contextPath: 'test', war: '**/*.war'
+    }
+}
